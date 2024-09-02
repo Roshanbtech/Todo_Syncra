@@ -1,0 +1,244 @@
+body {
+    margin: 0;
+    background-color: #1c1c1c; /* Dark black background */
+    font-family: 'Arial', sans-serif;
+    overflow: hidden; /* Prevents scrollbar due to animation */
+  }
+  
+  /* Gradient background animation */
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  /* Glassmorphism effect for the todo container */
+.todo-container {
+    background: rgba(28, 28, 28, 0.9); /* Semi-transparent black background */
+    border-radius: 15px;
+    width: 350px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    backdrop-filter: blur(10px); /* Glassmorphism blur */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Soft shadow */
+    padding: 20px;
+    max-height: 80vh; /* Limit height to 80% of viewport height */
+    overflow-y: auto; /* Enable vertical scrollbar if content overflows */
+  }
+  
+  /* Additional styles to ensure proper scrollbar appearance */
+  .todo-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .todo-container::-webkit-scrollbar-thumb {
+    background: #ffd700; /* Color of the scrollbar thumb */
+    border-radius: 4px;
+  }
+  
+  .todo-container::-webkit-scrollbar-thumb:hover {
+    background: #f2c000; /* Color of the scrollbar thumb on hover */
+  }
+  
+  .todo-container::-webkit-scrollbar-track {
+    background: rgba(33, 33, 33, 0.8); /* Background of the scrollbar track */
+    border-radius: 4px;
+  }
+  
+  /* Neon effect for headings */
+  h2 {
+    margin: 0;
+    margin-bottom: 15px;
+    color: #ffd700; /* Bright yellow color for text */
+    font-size: 24px;
+  }
+  
+  h2:hover {
+    color: #333333;
+    transition: 0.5s;
+    text-shadow: 0 0 5px #ffd700, 0 0 5px #333333; /* Neon glow effect */
+  }
+  
+  /* Glassmorphism effect for input section */
+  .input-section {
+    padding: 18px;
+    background: rgba(33, 33, 33, 0.8); /* Darker semi-transparent background */
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+  }
+  
+  /* Stylish input field */
+  .input-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  
+  .input-section input {
+    flex: 1;
+    border-radius: 8px;
+    border: 1px solid #ffd700; /* Darker border color */
+    margin-right: 10px;
+    padding: 10px;
+    background-color: transparent; /* Make background transparent */
+    outline: none;
+    color: #ffd700; /* Text color */
+    box-sizing: border-box;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Soft shadow around input */
+  }
+  
+  input::placeholder {
+    color: #ffd700; /* Placeholder color */
+    opacity: 0.8;
+  }
+  
+  /* Neon button effect */
+  .input-section button {
+    background: linear-gradient(45deg, #ffd700, #333333); /* Gradient background */
+    border: none;
+    border-radius: 8px;
+    color: #1c1c1c; /* Dark text color */
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4); /* Neon glow */
+  }
+  
+  .input-section button:hover {
+    background: linear-gradient(45deg, #333333, #ffd700); /* Inverted gradient on hover */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6); /* Intensified glow */
+  }
+  
+  /* List items */
+  ul {
+    text-align: left;
+    padding: 0;
+  }
+  
+  ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    padding: 12px;
+    background: rgba(33, 33, 33, 0.8); /* Darker semi-transparent background */
+    border-radius: 10px;
+    margin-bottom: 10px;
+    color: #ffd700; /* Text color */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    transition: background 0.3s, color 0.3s; /* Smooth transition for effects */
+  }
+  
+  ul li:hover {
+    color: #cccccc; /* Lighter text color on hover */
+    box-shadow: 2px 2px 0px 0px #ffd700;
+  }
+  
+  ul li.completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+    color: #ffd700; /* Lighter color for completed tasks */
+  }
+  
+  /* Neon effect for icons */
+  ul li .icons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  ul li .icons i {
+    cursor: pointer;
+    color: #ffd700; /* Yellow color for icons */
+    transition: color 0.3s, transform 0.3s; /* Transition for smooth hover effect */
+  }
+  
+  ul li .icons i:hover {
+    color: #ffffff; /* White color on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    border: 1px solid #ffd700;
+    border-radius: 50%;
+  }
+  
+  ul li .icons i:first-child {
+    color: #00ff00; /* Neon green for complete */
+    filter: drop-shadow(0 0 5px #00ff00); /* Neon green glow for complete */
+  }
+  
+  ul li .icons i:nth-child(2) {
+    color: blue; /* Bright blue for edit */
+    filter: drop-shadow(0 0 5px blue); /* Neon yellow glow for edit */
+  }
+  
+  ul li .icons i:last-child {
+    color: #ff3333; /* Neon red for delete */
+    filter: drop-shadow(0 0 5px #ff3333); /* Neon red glow for delete */
+  }
+  
+  /* Dropdown for sorting */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  
+  .dropdown-button {
+    background: linear-gradient(45deg, #ffd700, #333333); /* Gradient background */
+    border: none;
+    border-radius: 8px;
+    color: #1c1c1c; /* Dark text color */
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4); /* Neon glow */
+    outline: none;
+  }
+  
+  .dropdown-button:hover {
+    background: linear-gradient(45deg, #333333, #ffd700); /* Inverted gradient on hover */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6); /* Intensified glow */
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(33, 33, 33, 0.9); /* Darker semi-transparent background */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Soft shadow */
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    z-index: 1;
+  }
+  
+  .dropdown-content .dropdown-item {
+    color: #ffd700; /* Text color */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #ffd700; /* Divider between items */
+  }
+  
+  .dropdown-content .dropdown-item:last-child {
+    border-bottom: none;
+  }
+  
+  .dropdown-content .dropdown-item:hover {
+    background-color: #333333; /* Background change on hover */
+    color: #ffffff; /* Text color on hover */
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block; /* Show dropdown on hover */
+  }
+   
+  
+  
